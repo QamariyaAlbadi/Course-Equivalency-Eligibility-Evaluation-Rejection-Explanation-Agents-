@@ -17,7 +17,7 @@ from app.services.database import fetch_course, get_connection
 from app.tools.policy import load_equivalency_policy, load_grade_policy
 
 _NOT_PLAN_TABLES = {"Course", "Student", "Takes", "Section", "Request", "Course_Equivalency", "Request_History",
-                    "Raise_Capacity", "Incomplete_Exam", "Grade_Change", "Program_Change", "Program"}
+                    "Program_Change", "Program"}
 
 
 _PLANS_PATH = Path(__file__).resolve().parent.parent / "knowledge_base" / "study_plans.json"
