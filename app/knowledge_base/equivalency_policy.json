@@ -1,0 +1,49 @@
+{
+  "similarity_thresholds": {
+    "equivalent_min": 80,
+    "review_min": 60
+  },
+  "weights": {
+    "topics": 0.5,
+    "learning_outcomes": 0.25,
+    "assessment_structure": 0.1,
+    "credit_hours": 0.15
+  },
+  "partial_match_weight": 0.5,
+  "assessment_categories": [
+    "exams",
+    "quizzes",
+    "assignments",
+    "projects",
+    "labs",
+    "participation",
+    "other"
+  ],
+  "max_syllabus_chars": 60000,
+  "direction": "The completed (old) course must cover the content of the requested (new) course.",
+  "source": "Project team setting. Thresholds and weights are editable here and should be confirmed with the department.",
+  "status": "draft_thresholds",
+  "constraints": {
+    "minimum_grade": "C+",
+    "credit_hours_rule": "The credit hours of the completed course must be equal to or greater than the requested UoS course.",
+    "requested_course_must_be_in_study_plan": true,
+    "transfer_credit_limits": {
+      "default_max_credit_hours": 60,
+      "extended_max_credit_hours": 70,
+      "extended_college_keywords": [
+        "engineering",
+        "health",
+        "pharmacy"
+      ],
+      "max_fraction_of_study_plan": 0.5,
+      "community_college_range": [
+        40,
+        50
+      ],
+      "community_college_note": "Community college transfers are capped at 40 to 50 credit hours; the institution type is not in the database, so this is not checked automatically."
+    },
+    "gpa_impact": "Transferred credits appear as grade TR and do not count in the CGPA.",
+    "source": "Course Equivalency Constraints document written by the team."
+  },
+  "max_unverified_match_percent": 30
+}

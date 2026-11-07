@@ -1,0 +1,19 @@
+{
+  "verified": {
+    "old_course_not_passed": "The completed course does not have a passing grade in the transcript.",
+    "similarity_below_threshold": "The overall syllabus similarity is below the required percentage.",
+    "credit_hours_lower": "The completed course has fewer credit hours than the requested course.",
+    "level_mismatch": "The completed course is at a lower academic level than the requested course.",
+    "missing_course_topics": "Topics of the requested course are not covered by the completed course.",
+    "grade_below_minimum": "The grade of the completed course is below the minimum grade required for equivalency.",
+    "course_not_in_study_plan": "The requested course is not part of the student's study plan.",
+    "transfer_credit_limit_exceeded": "Approving the request would exceed the maximum number of transferable credit hours.",
+    "program_change_rejected": "The student's program change to the program that offers the requested course was rejected."
+  },
+  "judged": {
+    "learning_outcomes_gap": "The learning outcomes of the requested course are not met by the completed course.",
+    "assessment_structure_differs": "The way the two courses are assessed differs significantly.",
+    "different_course_focus": "The two courses have a different focus or emphasis.",
+    "insufficient_syllabus_detail": "The syllabus does not give enough detail to support equivalency."
+  }
+}

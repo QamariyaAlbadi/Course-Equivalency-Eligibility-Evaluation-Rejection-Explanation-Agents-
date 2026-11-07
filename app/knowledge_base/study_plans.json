@@ -1,0 +1,734 @@
+{
+  "source": "University of Sharjah degree pages (study plan tables)",
+  "retrieved": "2026-10-31",
+  "programs": {
+    "Computer Science": {
+      "match_names": [
+        "Computer Science"
+      ],
+      "url": "https://www.sharjah.ac.ae/Academics/Degree/Undergraduate/Computer-Science",
+      "total_credits": 123,
+      "courses": [
+        {
+          "course_id": "1430110",
+          "name": "Physics I for Sciences",
+          "credits": 3
+        },
+        {
+          "course_id": "1430116",
+          "name": "Physics I Lab",
+          "credits": 1
+        },
+        {
+          "course_id": "1420101",
+          "name": "General Chemistry I",
+          "credits": 3
+        },
+        {
+          "course_id": "1420102",
+          "name": "General Chemistry I Lab",
+          "credits": 1
+        },
+        {
+          "course_id": "0202213",
+          "name": "Critical Reading and Writing",
+          "credits": 3
+        },
+        {
+          "course_id": "1440131",
+          "name": "Calculus I",
+          "credits": 3
+        },
+        {
+          "course_id": "1440132",
+          "name": "Calculus II",
+          "credits": 3
+        },
+        {
+          "course_id": "1440211",
+          "name": "Linear Algebra",
+          "credits": 3
+        },
+        {
+          "course_id": "1440281",
+          "name": "Intro. to Prob. and Statistics",
+          "credits": 3
+        },
+        {
+          "course_id": "1501116",
+          "name": "Programming I",
+          "credits": 4
+        },
+        {
+          "course_id": "1502201",
+          "name": "Digital Logic Design",
+          "credits": 3
+        },
+        {
+          "course_id": "1502202",
+          "name": "Digital Logic Design Lab.",
+          "credits": 1
+        },
+        {
+          "course_id": "1501211",
+          "name": "Programming II",
+          "credits": 3
+        },
+        {
+          "course_id": "1501215",
+          "name": "Data Structures",
+          "credits": 3
+        },
+        {
+          "course_id": "1501246",
+          "name": "Obj. Oriented Design with Java",
+          "credits": 3
+        },
+        {
+          "course_id": "1501252",
+          "name": "Comp. Org. & Assembly Language",
+          "credits": 4
+        },
+        {
+          "course_id": "1501263",
+          "name": "Intro. to Database Management System",
+          "credits": 3
+        },
+        {
+          "course_id": "1501279",
+          "name": "Discrete Structures",
+          "credits": 3
+        },
+        {
+          "course_id": "1501319",
+          "name": "Prog. Languages & Paradigms",
+          "credits": 3
+        },
+        {
+          "course_id": "1501322",
+          "name": "Prof. Soc. & Ethical Issues in CS",
+          "credits": 2
+        },
+        {
+          "course_id": "1501352",
+          "name": "Operating Systems",
+          "credits": 3
+        },
+        {
+          "course_id": "1501330",
+          "name": "Intro. To Artificial Intelligence",
+          "credits": 3
+        },
+        {
+          "course_id": "1501366",
+          "name": "Software Engineering",
+          "credits": 3
+        },
+        {
+          "course_id": "1501250",
+          "name": "Networking Fundamentals",
+          "credits": 3
+        },
+        {
+          "course_id": "1501371",
+          "name": "Design & Analysis of Algorithms",
+          "credits": 3
+        },
+        {
+          "course_id": "1501372",
+          "name": "Formal Lang. & Automata Theory",
+          "credits": 3
+        },
+        {
+          "course_id": "1501394",
+          "name": "Junior Project in CS",
+          "credits": 2
+        },
+        {
+          "course_id": "1501397",
+          "name": "CO-OP Summer Training",
+          "credits": 3
+        },
+        {
+          "course_id": "1501494",
+          "name": "Senior Project in CS",
+          "credits": 3
+        },
+        {
+          "course_id": "1501459",
+          "name": "Information Security",
+          "credits": 3
+        },
+        {
+          "course_id": "1501454",
+          "name": "Cloud Computing",
+          "credits": 3
+        },
+        {
+          "course_id": "1501341",
+          "name": "Web Programming",
+          "credits": 3
+        },
+        {
+          "course_id": "1501342",
+          "name": "2D/3D Computer Animation",
+          "credits": 3
+        },
+        {
+          "course_id": "1501343",
+          "name": "Interactive 3D Design",
+          "credits": 3
+        },
+        {
+          "course_id": "1501344",
+          "name": "2D Character Design",
+          "credits": 3
+        },
+        {
+          "course_id": "1501355",
+          "name": "Computer Architecture",
+          "credits": 3
+        },
+        {
+          "course_id": "1501365",
+          "name": "Advanced Database System",
+          "credits": 3
+        },
+        {
+          "course_id": "1501370",
+          "name": "Numerical Methods",
+          "credits": 3
+        },
+        {
+          "course_id": "1501433",
+          "name": "Intro.to Computer Vision & Image Processing",
+          "credits": 3
+        },
+        {
+          "course_id": "1501440",
+          "name": "Intro.to Computer Graphics",
+          "credits": 3
+        },
+        {
+          "course_id": "1501441",
+          "name": "Multimedia Technology",
+          "credits": 3
+        },
+        {
+          "course_id": "1501442",
+          "name": "3D Character Animation and Visual FX",
+          "credits": 3
+        },
+        {
+          "course_id": "1501443",
+          "name": "Human Computer Interaction",
+          "credits": 3
+        },
+        {
+          "course_id": "1501444",
+          "name": "Game Design & Development",
+          "credits": 3
+        },
+        {
+          "course_id": "1501445",
+          "name": "IT Application in E‐Comm.",
+          "credits": 3
+        },
+        {
+          "course_id": "1501451",
+          "name": "Computer Networks",
+          "credits": 3
+        },
+        {
+          "course_id": "1501458",
+          "name": "Mobile Application & Design",
+          "credits": 3
+        },
+        {
+          "course_id": "1501465",
+          "name": "Development of Web Application",
+          "credits": 3
+        },
+        {
+          "course_id": "1501474",
+          "name": "Compiler Design",
+          "credits": 3
+        },
+        {
+          "course_id": "1501490",
+          "name": "Topics in Computer Science I",
+          "credits": 3
+        },
+        {
+          "course_id": "1501491",
+          "name": "Topics in Computer Science II",
+          "credits": 3
+        },
+        {
+          "course_id": "1501492",
+          "name": "Special Topics in IT",
+          "credits": 3
+        },
+        {
+          "course_id": "0201102",
+          "name": "Arabic Language",
+          "credits": 3
+        },
+        {
+          "course_id": "0202112",
+          "name": "English for Academic Purposes",
+          "credits": 3
+        },
+        {
+          "course_id": "1401100",
+          "name": "Introduction to IT (English)",
+          "credits": 3
+        },
+        {
+          "course_id": "0101100",
+          "name": "Islamic Culture",
+          "credits": 3
+        },
+        {
+          "course_id": "0302200",
+          "name": "Fundamentals of Innovation and Entrepreneurship",
+          "credits": 3
+        },
+        {
+          "course_id": "0204102",
+          "name": "UAE Society",
+          "credits": 3
+        }
+      ]
+    },
+    "Computer Engineering": {
+      "match_names": [
+        "Computer Engineering"
+      ],
+      "url": "https://www.sharjah.ac.ae/Academics/Degree/Undergraduate/Computer-Engineering",
+      "total_credits": 132,
+      "courses": [
+        {
+          "course_id": "0201102",
+          "name": "Arabic Language",
+          "credits": 3
+        },
+        {
+          "course_id": "1430115",
+          "name": "Physics I",
+          "credits": 3
+        },
+        {
+          "course_id": "1430116",
+          "name": "Physics I Lab",
+          "credits": 1
+        },
+        {
+          "course_id": "1440133",
+          "name": "Calculus I for Engineers",
+          "credits": 3
+        },
+        {
+          "course_id": "1420101",
+          "name": "General Chemistry",
+          "credits": 3
+        },
+        {
+          "course_id": "1420102",
+          "name": "General Chemistry Laboratory",
+          "credits": 1
+        },
+        {
+          "course_id": "0202112",
+          "name": "English for Academic Purposes",
+          "credits": 3
+        },
+        {
+          "course_id": "1430117",
+          "name": "Physics II",
+          "credits": 3
+        },
+        {
+          "course_id": "1430118",
+          "name": "Physics II Laboratory",
+          "credits": 1
+        },
+        {
+          "course_id": "1502101",
+          "name": "Introduction to CPE",
+          "credits": 3
+        },
+        {
+          "course_id": "1440161",
+          "name": "Calculus II for Engineers",
+          "credits": 3
+        },
+        {
+          "course_id": "1501116",
+          "name": "Programming I",
+          "credits": 4
+        },
+        {
+          "course_id": "1502111",
+          "name": "Discrete Mathematics for Engineers",
+          "credits": 3
+        },
+        {
+          "course_id": "0402202",
+          "name": "Circuit Analysis I",
+          "credits": 3
+        },
+        {
+          "course_id": "0402203",
+          "name": "Circuit Analysis I Laboratory",
+          "credits": 1
+        },
+        {
+          "course_id": "1501211",
+          "name": "Programming II",
+          "credits": 3
+        },
+        {
+          "course_id": "1440261",
+          "name": "Differential Equation for Engineers",
+          "credits": 3
+        },
+        {
+          "course_id": "1502201",
+          "name": "Digital Logic Design",
+          "credits": 3
+        },
+        {
+          "course_id": "1501100",
+          "name": "Introduction to IT (English)",
+          "credits": 3
+        },
+        {
+          "course_id": "0402241",
+          "name": "Random Signal Theory",
+          "credits": 3
+        },
+        {
+          "course_id": "0402240",
+          "name": "Signals and Systems",
+          "credits": 3
+        },
+        {
+          "course_id": "0402250",
+          "name": "Fundamentals of Electronic Circuits",
+          "credits": 3
+        },
+        {
+          "course_id": "0402251",
+          "name": "Fundamentals of Electronic Circuits Laboratory",
+          "credits": 1
+        },
+        {
+          "course_id": "1502202",
+          "name": "Digital Logic Design Laboratory",
+          "credits": 1
+        },
+        {
+          "course_id": "1502232",
+          "name": "Microprocessors and Assembly Language",
+          "credits": 4
+        },
+        {
+          "course_id": "1501215",
+          "name": "Data Structures",
+          "credits": 3
+        },
+        {
+          "course_id": "0402346",
+          "name": "Telecommunication Systems I",
+          "credits": 3
+        },
+        {
+          "course_id": "1502346",
+          "name": "Computer Communications and Networks",
+          "credits": 3
+        },
+        {
+          "course_id": "0402340",
+          "name": "Engineering Computation and Linear Algebra",
+          "credits": 3
+        },
+        {
+          "course_id": "1502326",
+          "name": "Computer System Architecture",
+          "credits": 3
+        },
+        {
+          "course_id": "0302200",
+          "name": "Fundamentals of Innovation",
+          "credits": 3
+        },
+        {
+          "course_id": "1501352",
+          "name": "Operating Systems",
+          "credits": 3
+        },
+        {
+          "course_id": "0402347",
+          "name": "Telecommunication Systems I Laboratory",
+          "credits": 1
+        },
+        {
+          "course_id": "1502347",
+          "name": "Computer Communications and Networks Laboratory",
+          "credits": 1
+        },
+        {
+          "course_id": "1502444",
+          "name": "Computer & Network Security",
+          "credits": 3
+        },
+        {
+          "course_id": "1502334",
+          "name": "Embedded Systems Design",
+          "credits": 3
+        },
+        {
+          "course_id": "1501363",
+          "name": "Software Engineering",
+          "credits": 3
+        },
+        {
+          "course_id": "0202207",
+          "name": "Technical Writing",
+          "credits": 3
+        },
+        {
+          "course_id": "1502442",
+          "name": "Network Programming",
+          "credits": 3
+        },
+        {
+          "course_id": "0104100",
+          "name": "Islamic Culture",
+          "credits": 3
+        },
+        {
+          "course_id": "1502491",
+          "name": "Senior Design Project I",
+          "credits": 1
+        },
+        {
+          "course_id": "1502300",
+          "name": "Professional, Societal, and Ethical Issues in Engineering",
+          "credits": 1
+        },
+        {
+          "course_id": "1502492",
+          "name": "Senior Design Project II",
+          "credits": 3
+        },
+        {
+          "course_id": "1502490",
+          "name": "Practical Training",
+          "credits": 0
+        },
+        {
+          "course_id": "1502412",
+          "name": "Parallel and Distributed Processing",
+          "credits": 3
+        },
+        {
+          "course_id": "1502413",
+          "name": "Computer Systems Modeling",
+          "credits": 3
+        },
+        {
+          "course_id": "1502414",
+          "name": "Verification in Software",
+          "credits": 3
+        },
+        {
+          "course_id": "1502416",
+          "name": "Real-time Systems Design",
+          "credits": 3
+        },
+        {
+          "course_id": "1502420",
+          "name": "Advanced Digital Design",
+          "credits": 3
+        },
+        {
+          "course_id": "1502422",
+          "name": "Performance Analysis",
+          "credits": 3
+        },
+        {
+          "course_id": "1502424",
+          "name": "High Performance Computer Architecture",
+          "credits": 3
+        },
+        {
+          "course_id": "1502425",
+          "name": "Distributed and Cloud Computing Systems",
+          "credits": 3
+        },
+        {
+          "course_id": "1502430",
+          "name": "Design of IOT Systems",
+          "credits": 3
+        },
+        {
+          "course_id": "1502443",
+          "name": "Computer Networks Design and Analysis",
+          "credits": 3
+        },
+        {
+          "course_id": "1502445",
+          "name": "Digital Image Processing",
+          "credits": 3
+        },
+        {
+          "course_id": "1502452",
+          "name": "VLSI Design",
+          "credits": 3
+        },
+        {
+          "course_id": "1502460",
+          "name": "Special Topics in Computer Engineering",
+          "credits": 3
+        },
+        {
+          "course_id": "1502462",
+          "name": "Special Topics in Computer Architecture",
+          "credits": 3
+        },
+        {
+          "course_id": "1502463",
+          "name": "Special Topics in Software and Computer Applications",
+          "credits": 3
+        },
+        {
+          "course_id": "1502465",
+          "name": "Special Topics in Microelectronics and VLSI",
+          "credits": 3
+        },
+        {
+          "course_id": "1502493",
+          "name": "Senior Seminar in Computer Engineering",
+          "credits": 1
+        },
+        {
+          "course_id": "1502449",
+          "name": "Autonomous Robotics Control",
+          "credits": 3
+        },
+        {
+          "course_id": "1501263",
+          "name": "Introduction to Database Management Systems",
+          "credits": 3
+        },
+        {
+          "course_id": "1501440",
+          "name": "Introduction to Computer Graphics",
+          "credits": 3
+        },
+        {
+          "course_id": "0402330",
+          "name": "Feedback Control Systems",
+          "credits": 3
+        },
+        {
+          "course_id": "0402341",
+          "name": "Multimedia Technology Laboratory",
+          "credits": 1
+        },
+        {
+          "course_id": "0402353",
+          "name": "Electronic Circuits",
+          "credits": 3
+        },
+        {
+          "course_id": "0402354",
+          "name": "Electronic Circuits Laboratory",
+          "credits": 1
+        },
+        {
+          "course_id": "0402437",
+          "name": "Programmable Logic Controllers and Applications",
+          "credits": 3
+        },
+        {
+          "course_id": "0402442",
+          "name": "Telecommunications Systems 2",
+          "credits": 3
+        },
+        {
+          "course_id": "0402444",
+          "name": "Digital Signal Processing",
+          "credits": 3
+        },
+        {
+          "course_id": "0402446",
+          "name": "Cellular Telephony",
+          "credits": 3
+        },
+        {
+          "course_id": "0402447",
+          "name": "Wireless Communication",
+          "credits": 3
+        },
+        {
+          "course_id": "0402448",
+          "name": "Speech Signal Processing and Applications",
+          "credits": 3
+        },
+        {
+          "course_id": "0406320",
+          "name": "Solar PV Systems",
+          "credits": 3
+        },
+        {
+          "course_id": "0406321",
+          "name": "Solar PV Systems Laboratory",
+          "credits": 1
+        },
+        {
+          "course_id": "0401301",
+          "name": "Engineering Economics",
+          "credits": 3
+        },
+        {
+          "course_id": "0204102",
+          "name": "UAE Society",
+          "credits": 3
+        },
+        {
+          "course_id": "1502454",
+          "name": "ApplicationSpecificIntegratedCircuits(ASIC)",
+          "credits": null
+        },
+        {
+          "course_id": "1502457",
+          "name": "DigitalIntegratedCircuits",
+          "credits": null
+        },
+        {
+          "course_id": "1502458",
+          "name": "DigitalIntegratedCircuitsLaboratory",
+          "credits": null
+        },
+        {
+          "course_id": "1502464",
+          "name": "SpecialTopicsincomputerNetworks",
+          "credits": null
+        },
+        {
+          "course_id": "1502336",
+          "name": "MicrocontrollerBasedDesign",
+          "credits": null
+        },
+        {
+          "course_id": "1502337",
+          "name": "MicrocontrollerBasedDesignLaboratory",
+          "credits": null
+        }
+      ]
+    }
+  }
+}

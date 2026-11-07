@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Course Equivalency Agents - Test Page</title>
+<style>
+  :root{--bg:#f6f7f9;--card:#fff;--ink:#1c2430;--mut:#667085;--line:#e3e6eb;--acc:#0b6b57;--bad:#b42318;--warn:#b54708;--ok:#067647}
+  @media(prefers-color-scheme:dark){:root{--bg:#12161c;--card:#1b212a;--ink:#e8ecf1;--mut:#9aa4b2;--line:#2c3440;--acc:#3ac2a2;--bad:#f97066;--warn:#fdb022;--ok:#47cd89}}
+  *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,sans-serif}
+  main{max-width:880px;margin:0 auto;padding:24px 16px 60px}
+  h1{font-size:22px;margin:0 0 4px}p.sub{color:var(--mut);margin:0 0 20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:18px}
+  h2{font-size:16px;margin:0 0 12px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:640px){.row{grid-template-columns:1fr}}
+  label{display:block;font-size:13px;color:var(--mut);margin-bottom:4px}
+  input[type=file],input[type=text],input[type=number]{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+  button{margin-top:14px;padding:10px 18px;border:0;border-radius:8px;background:var(--acc);color:#fff;font-weight:600;cursor:pointer}
+  button:disabled{opacity:.5;cursor:wait}
+  .big{font-size:34px;font-weight:700}.pill{display:inline-block;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:700;color:#fff}
+  .EQUIVALENT,.APPROVE{background:var(--ok)}.FURTHER_REVIEW,.MANUAL_REVIEW{background:var(--warn)}.NON_EQUIVALENT,.REJECT{background:var(--bad)}
+  .bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden}.bar i{display:block;height:100%;background:var(--acc)}
+  .comp{display:grid;grid-template-columns:150px 1fr 56px;gap:10px;align-items:center;margin:6px 0;font-size:14px}
+  ul{margin:6px 0 0;padding-left:20px}.mut{color:var(--mut)}.err{color:var(--bad);white-space:pre-wrap}
+  pre{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;overflow:auto;font-size:12px}
+  details{margin-top:10px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Course Equivalency agents</h1>
+  <p class="sub">Upload the two syllabi and the agent compares them. Gemini reads the syllabi; the percentages are calculated by code.</p>
+
+  <section class="card">
+    <h2>1. Compare two syllabi</h2>
+    <div class="row">
+      <div><label for="oldf">Previously completed course syllabus (PDF, DOCX, TXT)</label><input id="oldf" type="file" accept=".pdf,.docx,.txt"></div>
+      <div><label for="newf">Requested course syllabus (PDF, DOCX, TXT)</label><input id="newf" type="file" accept=".pdf,.docx,.txt"></div>
+    </div>
+    <button id="cmp">Compare</button>
+    <div id="cmpOut"></div>
+  </section>
+
+  <section class="card">
+    <h2>2. Upload syllabi for a real request, then run the agents</h2>
+    <label for="rid">Request ID</label><input id="rid" type="text" placeholder="the Course Equivalency Request_ID">
+    <div class="row" style="margin-top:12px">
+      <div><label for="upold">Completed course syllabus (one or more files)</label><input id="upold" type="file" multiple accept=".pdf,.docx,.txt"></div>
+      <div><label for="upnew">Requested course syllabus (one or more files)</label><input id="upnew" type="file" multiple accept=".pdf,.docx,.txt"></div>
+    </div>
+    <button id="upl">Upload both</button>
+    <button id="run" style="margin-left:8px">Run Agent 8 + Agent 9</button>
+    <div id="runOut"></div>
+  </section>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const base = location.protocol === "file:" ? "http://localhost:8001" : "";
+async function call(url, opts){
+  const r = await fetch(base + url, opts);
+  const j = await r.json().catch(() => ({}));
+  if(!r.ok) throw new Error(j.detail || r.statusText);
+  return j;
+}
+function busy(btn, on){ btn.disabled = on; }
+function simHtml(sim, label){
+  const o = sim.overall_similarity_percent;
+  const comps = Object.entries(sim.components_percent).map(([k,v]) =>
+    `<div class="comp"><span>${esc(k.replace(/_/g," "))}</span><div class="bar"><i style="width:${v ?? 0}%"></i></div><span>${v==null?"n/a":v+"%"}</span></div>`).join("");
+  const miss = sim.new_topics_not_covered.length ? `<p><b>Requested-course topics not covered</b></p><ul>${sim.new_topics_not_covered.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>` : "<p class='mut'>All requested topics are covered.</p>";
+  return `<p><span class="big">${o ?? "n/a"}${o==null?"":"%"}</span> ${label?`<span class="pill ${label}">${label}</span>`:""}
+    <span class="mut">&nbsp;thresholds: ${sim.thresholds.equivalent_min}% equivalent, ${sim.thresholds.review_min}% review</span></p>${comps}${miss}
+    ${sim.credit_hours.note?`<p class="mut">${esc(sim.credit_hours.note)}</p>`:""}${evidenceHtml(sim.match_verification)}`;
+}
+function dropHtml(v){
+  const d = v.dropped_matches || [];
+  if(!d.length) return "";
+  return `<details><summary>Matches dropped (quote not found in the syllabus)</summary><ul>${d.map(m =>
+    `<li><b>${esc(m.requested_item||"?")}</b> &larr; ${esc(m.completed_item||"?")}<br><span class="mut">&ldquo;${esc(m.quote_tried||"(no quote)")}&rdquo;</span></li>`).join("")}</ul></details>`;
+}
+function evidenceHtml(v){
+  if(!v) return "";
+  const ok = v.claimed_total - v.dropped_total;
+  const rows = (v.verified_matches||[]).map(m =>
+    `<li><b>${esc(m.requested_item)}</b> &larr; ${esc(m.completed_item)} (${esc(m.strength)})<br><span class="mut">&ldquo;${esc(m.quote_from_completed_syllabus)}&rdquo;</span></li>`).join("");
+  return `<p class="mut">${ok} of ${v.claimed_total} matches confirmed in the syllabus text${v.dropped_total?`; ${v.dropped_total} dropped because the quote was not found`:""}.</p>
+    <details><summary>Evidence for each match (quoted from the completed course syllabus)</summary><ul>${rows}</ul></details>${dropHtml(v)}`;
+}
+$("cmp").onclick = async () => {
+  const out = $("cmpOut"); out.innerHTML = "";
+  if(!$("oldf").files[0] || !$("newf").files[0]){ out.innerHTML = '<p class="err">Choose both files.</p>'; return; }
+  const fd = new FormData();
+  fd.append("old_file", $("oldf").files[0]); fd.append("new_file", $("newf").files[0]);
+  busy($("cmp"), true); out.innerHTML = '<p class="mut">Reading and comparing... this can take up to a minute.</p>';
+  try{
+    const j = await call("/compare", {method:"POST", body: fd});
+    out.innerHTML = simHtml(j.similarity, j.preview_label) + `<p class="mut">${esc(j.note)}</p>
+      <details><summary>Extracted course information</summary><pre>${esc(JSON.stringify(j.extracted, null, 2))}</pre></details>`;
+  }catch(e){ out.innerHTML = `<p class="err">${esc(e.message)}</p>`; }
+  busy($("cmp"), false);
+};
+$("upl").onclick = async () => {
+  const out = $("runOut"), rid = $("rid").value.trim();
+  if(!rid || !$("upold").files.length || !$("upnew").files.length){ out.innerHTML = '<p class="err">Enter the Request ID and choose both files.</p>'; return; }
+  busy($("upl"), true);
+  try{
+    for(const side of ["old","new"]){
+      const fd = new FormData(); fd.append("side", side); for(const f of $(side==="old"?"upold":"upnew").files) fd.append("files", f);
+      await call("/upload/" + encodeURIComponent(rid), {method:"POST", body: fd});
+    }
+    out.innerHTML = '<p style="color:var(--ok)">Both syllabi uploaded.</p>';
+  }catch(e){ out.innerHTML = `<p class="err">${esc(e.message)}</p>`; }
+  busy($("upl"), false);
+};
+$("run").onclick = async () => {
+  const out = $("runOut"), rid = $("rid").value.trim();
+  if(!rid){ out.innerHTML = '<p class="err">Enter the Request ID.</p>'; return; }
+  busy($("run"), true); out.innerHTML = '<p class="mut">Running the agents...</p>';
+  try{
+    const j = await call("/pipeline/" + encodeURIComponent(rid));
+    const e = j.eligibility, ev = e.evidence, rej = j.rejection_explanation;
+    let h = `<h2 style="margin-top:16px">Agent 8: eligibility</h2>
+      <p><span class="pill ${e.recommendation}">${e.recommendation}</span> <span class="pill ${e.equivalency_label}">${e.equivalency_label}</span></p>
+      <p class="mut">${esc(ev.student.name)} (${esc(ev.student.student_id)}): ${esc(ev.old_course.name || ev.old_course.course_id)} (grade ${esc(ev.old_course.grade || "not found")}) &rarr; ${esc(ev.new_course.name)}</p>
+      <p>${esc(e.reasoning)}</p>`;
+    const cn = ev.constraints, mk = v => v===true?"PASS":v===false?"FAIL":"NOT VERIFIED";
+    h += `<p><b>University constraints</b></p><ul>
+      <li>${mk(cn.minimum_grade.meets)}: minimum grade ${esc(cn.minimum_grade.required)} (grade: ${esc(cn.minimum_grade.grade || "not found")})</li>
+      <li>${mk(cn.study_plan.in_plan)}: requested course is in the study plan</li>
+      <li>${mk(cn.credit_hours.old_covers_new)}: completed credit hours (${esc(cn.credit_hours.old)}) at least requested (${esc(cn.credit_hours.new)})</li>
+      <li>${mk(cn.transfer_limit.within_limit)}: transfer limit ${esc(cn.transfer_limit.total_after)} of ${esc(cn.transfer_limit.cap_credit_hours)} credit hours</li></ul>`;
+    if(ev.similarity) h += simHtml(ev.similarity, null);
+    if(e.syllabus_request) h += `<p class="err">Action needed: ${esc(e.syllabus_request)}</p>`;
+    h += (e.checks||[]).map(c=>`<p><b>${esc(c.status)}</b> ${esc(c.name)}: <span class="mut">${esc(c.explanation)}</span></p>`).join("");
+    if(e.recommendation === "REJECT"){
+      h += `<h2 style="margin-top:16px">Agent 9: rejection explanation <span class="mut">(${esc(rej.status)})</span></h2>` +
+        rej.suggested_reasons.map((r,i)=>`<p><b>Suggested reason ${i+1} (${esc(r.tone)})</b><br>${esc(r.text)}</p>`).join("") +
+        (rej.notes||[]).map(n=>`<p class="mut">${esc(n)}</p>`).join("");
+    }
+    if(e.approval_note) h += `<p class="mut">If approved: ${esc(e.approval_note)}</p>`;
+    h += `<details><summary>Full JSON</summary><pre>${esc(JSON.stringify(j, null, 2))}</pre></details>
+      <p class="mut">The final decision is made by the HOD/administrator.</p>`;
+    out.innerHTML = h;
+  }catch(e){ out.innerHTML = `<p class="err">${esc(e.message)}</p>`; }
+  busy($("run"), false);
+};
+</script>
+</body>
+</html>

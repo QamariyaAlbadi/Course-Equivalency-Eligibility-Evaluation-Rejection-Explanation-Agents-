@@ -1,0 +1,13 @@
+google-genai
+pydantic
+python-dotenv
+SQLAlchemy>=2.0
+psycopg[binary]
+requests
+pypdf
+python-docx
+pytest
+fastapi
+uvicorn
+python-multipart
+beautifulsoup4

@@ -1,0 +1,10 @@
+{
+  "passing_grades": ["A", "B+", "B", "C+", "C", "D+", "D"],
+  "failing_grades": ["F", "WF", "FA"],
+  "grade_order": ["A", "B+", "B", "C+", "C", "D+", "D"],
+  "equivalency_minimum_grade": "C+",
+  "transfer_grade_code": "TR",
+  "null_grade_meaning": "NULL means the course is still in progress / not completed.",
+  "source": "University of Sharjah grading policy; equivalency minimum grade (C+) from the team's Course Equivalency Constraints document.",
+  "status": "approved"
+}
